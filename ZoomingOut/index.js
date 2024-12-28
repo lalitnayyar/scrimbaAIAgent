@@ -14,6 +14,7 @@ const openai = new OpenAI({
  * and give me some localized ideas of activities I can do.
  */
 
+// Call a function to get the current location and the current weather
 async function getActivityIdeas() {
     const response = await openai.chat.completions.create({
         model: "gpt-4",
