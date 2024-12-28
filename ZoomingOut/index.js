@@ -1,14 +1,14 @@
-import OpenAI from "openai"
-import dotenv from "dotenv"
-import { getCurrentWeather, getLocation } from "./tools.js"
+import OpenAI from 'openai';
+import dotenv from 'dotenv';
+import { getCurrentWeather, getLocation } from './tools.js';
 
 // Load environment variables from .env file
-dotenv.config()
+dotenv.config();
 
 const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-    dangerouslyAllowBrowser: true
-})
+  apiKey: process.env.OPENAI_API_KEY,
+  dangerouslyAllowBrowser: true,
+});
 
 /**
  * Goal - build an agent that can answer any questions that might require knowledge about my current location and the current weather at my location.
@@ -21,8 +21,7 @@ const openai = new OpenAI({
  3. Parse any actions that the LLM determines are necessary
  4. End condition - final Answer is given
  
- */ 
-
+ */
 
 const systemPrompt = `
 You cycle through Thought, Action, PAUSE, Observation. At the end of the loop you output a final Answer. Your final answer should be highly specific to the observations you have from running
@@ -59,49 +58,69 @@ Observation: { location: "New York City, NY", forecast: ["sunny"] }
 
 You then output:
 Answer: <Suggested activities based on sunny weather that are highly specific to New York City and surrounding areas.>
-`
+`;
 
 /**
  * Challenge: Set up the function
  * 1. Create a function called `agent` that takes a `query` as a parameter
- * 2. Create a messages array that follows the pattern openai expects for 
+ * 2. Create a messages array that follows the pattern openai expects for
  *    its chat completions endpoint. The first message should be the system
- *    prompt we wrote above, and the second message should be the query 
+ *    prompt we wrote above, and the second message should be the query
  *    from the user found in the `agent` function parameter.
  * 3. Move the code below inside the function (and uncomment it)
  * 4. Call the function with a string query of any kind and see what gets returned.
  */
 
 async function agent(query) {
-    const response = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [
-            { role: "system", content: systemPrompt },
-            { role: "user", content: query }
-        ]
-    })
+  const response = await openai.chat.completions.create({
+    model: 'gpt-3.5-turbo',
+    messages: [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: query },
+    ],
+  });
+  const availableFunctions = {
+    getCurrentWeather: getCurrentWeather,
+    getLocation: getLocation,
+  };
 
-    console.log(JSON.stringify(response.choices[0].message.content))
-        /**
-     * PLAN:
-     * 1. Split the string on the newline character \n
-     * 2. Search through the array of strings for one that has "Action:"
-     * 3. Parse the action (function and parameter) from the string
-     * 4. Calling the function
-     * 5. Add an "Obversation" message with the results of the function call
-     */
-        /**
-     * CHALLENGE:
-     * 1. Split the string on the newline character ("\n")
-     * 2. Search through the array of strings for one that has "Action:"
-     *      regex to use: 
-     *      const actionRegex = /^Action: (\w+): (.*)$/
-     * 3. Parse the action (function and parameter) from the string
-     */
-}
+  /**
+   * PLAN:
+   * 1. Split the string on the newline character \n
+   * 2. Search through the array of strings for one that has "Action:"
+   * 3. Parse the action (function and parameter) from the string
+   * 4. Calling the function
+   * 5. Add an "Obversation" message with the results of the function call
+   */
+  /**
+   * CHALLENGE:
+   * 1. Split the string on the newline character ("\n")
+   * 2. Search through the array of strings for one that has "Action:"
+   *      regex to use:
+   *      const actionRegex = /^Action: (\w+): (.*)$/
+   * 3. Parse the action (function and parameter) from the string
+   * 4. Calling the function
+   * 5. Add an "Obversation" message with the results of the function call
+   */
+  //C-step -1
+  const responseText = response.choices[0].message.content;
+  const responseLines = responseText.split('\n');
+  console.log(responseLines);
+
+  //C-step -2
+  const actionRegex = /^Action: (\w+): (.*)$/;
+  const foundActionStr = responseLines.find((str) => actionRegex.test(str));
+  const actions = actionRegex.exec(foundActionStr);
+  // console.log(actions)
+
+  //C-step -4
+
+  const [_, action, actionArg] = actions;
+  const observation = await availableFunctions[action](actionArg);
+  console.log(observation);
 }
 
-agent("What book should I read next? I like self-help books. ")
+agent('What is the current weather in New York City?');
 
 /**
  * output ❯ node index.js
