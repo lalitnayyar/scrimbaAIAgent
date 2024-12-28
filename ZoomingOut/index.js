@@ -1,6 +1,6 @@
 import OpenAI from "openai"
 import dotenv from "dotenv"
-import { getCurrentWeather, getLocation } from "./tools.js"
+import { getCurrentWeather, getLocation ,tools} from "./tools.js"
 
 // Load environment variables from .env file
 dotenv.config()
@@ -28,17 +28,42 @@ async function agent(query) {
     
     const MAX_ITERATIONS = 5
     
-    for (let i = 0; i < MAX_ITERATIONS; i++) {
-        console.log(`Iteration #${i + 1}`)
+    // for (let i = 0; i < MAX_ITERATIONS; i++) {
+    //     console.log(`Iteration #${i + 1}`)
         const response = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages,
-            tools: []
+            tools
         })
 
-        const responseText = response.choices[0].message.content
-        console.log(responseText)
+        // const responseText = response.choices[0].message.content
+        console.log(JSON.stringify(response, null, 2))
     }
-}
+// }
 
-// console.log(await agent("What are some activity ideas that I can do this afternoon based on my location and weather?"))
+await agent("What is my current location?")
+
+/**
+ * "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_pi9Ot3bWaOqnAOYGosa6uM5s",
+            "type": "function",
+            "function": {
+              "name": "getLocation",
+              "arguments": "{}"
+            }
+          }
+        ],
+        "refusal": null
+      },
+      "logprobs": null,
+      "finish_reason": "tool_calls"
+    }
+  ],
+ */
