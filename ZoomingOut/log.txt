@@ -43,4 +43,29 @@
   },
   "logprobs": null,
   "finish_reason": "stop"
+}{
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": "I don't have feelings, but I'm here and ready to assist you. How can I help you today?",
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "stop"
 }
+
+
+
+
+Iteration #1
+{
+  index: 0,
+  message: {
+    role: 'assistant',
+    content: "I don't have feelings, but I'm here and ready to assist you. How can I help you today?",
+    refusal: null
+  },
+  logprobs: null,
+  finish_reason: 'stop'
+}
+I don't have fe

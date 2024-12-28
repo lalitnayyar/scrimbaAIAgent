@@ -47,6 +47,14 @@ async function agent(query) {
     
         // Log the response to a file
         fs.writeFileSync('log.txt', responseText, { flag: 'a' })
+
+        const { finish_reason: finishReason, message } = response.choices[0]
+        
+        if (finishReason === "stop") {
+            console.log(message.content)
+            console.log("AGENT ENDING")
+            return
+        }
         // Check finish_reason
         // if "stop"
             // return the result
@@ -54,6 +62,7 @@ async function agent(query) {
             // call functions
             // append results
             // continue
+
         
     }
 }
