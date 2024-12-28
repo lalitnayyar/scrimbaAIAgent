@@ -8,3 +8,153 @@
   "logprobs": null,
   "finish_reason": "stop"
 }
+2024-12-28T22:43:37.993Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_7qCtMTGS2BeZQhMdnlNXEFwK",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      },
+      {
+        "id": "call_LZlqQmxx4jQl45rGyGEB5bGN",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+2024-12-28T22:43:37.993Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:43:37.993Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:43:38.693Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_wQae7BO1cQM0zAV9cZOvXEp2",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      },
+      {
+        "id": "call_03pI5Bb08cIZgTlQulFRIeTZ",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+2024-12-28T22:43:38.693Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:43:38.693Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:43:39.493Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_rQHM1RrfcYYA6fWkw6iLysBK",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      },
+      {
+        "id": "call_Tt8lwpl60tK5a3kOgmL9koqE",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+2024-12-28T22:43:39.493Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:43:39.493Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:43:40.221Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_0k7H7QUlfGCy4OVwfGm5VVo2",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      },
+      {
+        "id": "call_1RAp7UKqK3J6dFYPSf5KNbDL",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+2024-12-28T22:43:40.221Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:43:40.221Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:43:40.952Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_IVDAVEcXDb2VooSR4EBSczK3",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      },
+      {
+        "id": "call_enRNublUhsFhVzok6AuHYjcl",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+2024-12-28T22:43:40.952Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:43:40.952Z - {"temperature":"72","unit":"F","forecast":"sunny"}

@@ -69,7 +69,6 @@ async function agent(query) {
                 const functionResponse = await functionToCall()
                 console.log(functionResponse)
                 const logEntry = `${timestamp} - ${functionResponse}\n`
-
                 // Log the response to a file
                 fs.writeFileSync('log.txt', logEntry, { flag: 'a' })
                 // get the function name
@@ -91,4 +90,4 @@ async function agent(query) {
     }
 }
 
-await agent("How are you today?")
+await agent("What's the current weather in Tokyo and New York City?")
