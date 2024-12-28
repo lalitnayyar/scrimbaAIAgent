@@ -17,7 +17,7 @@ const openai = new OpenAI({
 /**
  PLAN:
  1. Design a well-written ReAct prompt
- 2. Build a loop for my agent to run in.
+ 2. Build a loop for my agent to run in. **
  3. Parse any actions that the LLM determines are necessary
  4. End condition - final Answer is given
  
@@ -61,21 +61,32 @@ You then output:
 Answer: <Suggested activities based on sunny weather that are highly specific to New York City and surrounding areas.>
 `
 
-// const weather = await getCurrentWeather()
-// const location = await getLocation()
+/**
+ * Challenge: Set up the function
+ * 1. Create a function called `agent` that takes a `query` as a parameter
+ * 2. Create a messages array that follows the pattern openai expects for 
+ *    its chat completions endpoint. The first message should be the system
+ *    prompt we wrote above, and the second message should be the query 
+ *    from the user found in the `agent` function parameter.
+ * 3. Move the code below inside the function (and uncomment it)
+ * 4. Call the function with a string query of any kind and see what gets returned.
+ */
 
-// async function getActivityIdeas() {
-//     const response = await openai.chat.completions.create({
-//         model: "gpt-3.5-turbo-0125",
-//         messages: [
-//             {
-//                 role: "user",
-//                 content: `Give me a list of activity ideas based on my current location of ${location} and weather of ${weather}`
-//             }
-//         ]
-//     })
+async function agent(query) {
+    const response = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: query }
+        ]
+    })
 
-//     console.log(response.choices[0].message.content)
-// }
+    console.log(JSON.stringify(response.choices[0].message.content))
+}
 
-// getActivityIdeas()
+agent("What book should I read next? I like self-help books. ")
+
+/**
+ * output ❯ node index.js
+"Thought: To suggest a self-help book, I should first consider the user's location to recommend something relevant.\n\nAction: getLocation: null\nPAUSE"
+ */
