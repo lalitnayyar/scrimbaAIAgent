@@ -90,6 +90,15 @@ async function agent(query) {
      * 4. Calling the function
      * 5. Add an "Obversation" message with the results of the function call
      */
+        /**
+     * CHALLENGE:
+     * 1. Split the string on the newline character ("\n")
+     * 2. Search through the array of strings for one that has "Action:"
+     *      regex to use: 
+     *      const actionRegex = /^Action: (\w+): (.*)$/
+     * 3. Parse the action (function and parameter) from the string
+     */
+}
 }
 
 agent("What book should I read next? I like self-help books. ")
