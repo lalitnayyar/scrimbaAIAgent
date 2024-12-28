@@ -1,0 +1,46 @@
+{
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": "I don't have feelings, but I'm here and ready to assist you. How can I help you today?",
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "stop"
+}{
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": "Thank you for asking! I'm here and ready to assist you. How can I help you today?",
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "stop"
+}{
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": "Thank you for asking! I'm here and ready to assist you. How can I help you today?",
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "stop"
+}{
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": "Thank you for asking! I'm an AI assistant, so I don't have feelings in the way humans do, but I'm here and ready to help you. How can I assist you today?",
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "stop"
+}{
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": "I'm here and ready to assist you! How can I help you today?",
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "stop"
+}

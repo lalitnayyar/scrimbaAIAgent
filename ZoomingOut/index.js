@@ -1,5 +1,6 @@
 import OpenAI from "openai"
 import dotenv from "dotenv"
+import fs from "fs"
 import { getCurrentWeather, getLocation, tools } from "./tools.js"
 
 // Load environment variables from .env file
@@ -28,67 +29,33 @@ async function agent(query) {
 
     const MAX_ITERATIONS = 5
 
-    // for (let i = 0; i < MAX_ITERATIONS; i++) {
-    //     console.log(`Iteration #${i + 1}`)
-    const response = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages,
-        tools
-    })
+    for (let i = 0; i < MAX_ITERATIONS; i++) {
+        console.log(`Iteration #${i + 1}`)
+        const response = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages,
+            tools
+        })
 
-    // const responseText = response.choices[0].message.content
-    console.log(JSON.stringify(response, null, 2))
-    /**
-* Challenge: 
-* Write the logic for the first part of our loop 
-* (if finish_reason === "stop" condition)
-*/
-    console.log(response.choices[0])
-
-    // Check finish_reason
-    // if "stop"
-    // return the result
-    // else if "tool_calls"
-    // call functions
-    // append results
-    // continue
+        /**
+         * Challenge: 
+         * Write the logic for the first part of our loop 
+         * (if finish_reason === "stop" condition)
+         */
+        const responseText = JSON.stringify(response.choices[0], null, 2)
+        console.log(response.choices[0])
+    
+        // Log the response to a file
+        fs.writeFileSync('log.txt', responseText, { flag: 'a' })
+        // Check finish_reason
+        // if "stop"
+            // return the result
+        // else if "tool_calls"
+            // call functions
+            // append results
+            // continue
+        
+    }
 }
-// }
 
-await agent("how are you today?")
-
-/**
- * "choices": [
-    {
-      "index": 0,
-      "message": {
-        "role": "assistant",
-        "content": null,
-        "tool_calls": [
-          {
-            "id": "call_pi9Ot3bWaOqnAOYGosa6uM5s",
-            "type": "function",
-            "function": {
-              "name": "getLocation",
-              "arguments": "{}"
-            }
-          }
-        ],
-        "refusal": null
-      },
-      "logprobs": null,
-      "finish_reason": "tool_calls"
-    }
-  ],
-    "choices": [
-    {
-      "index": 0,
-      "message": {
-        "role": "assistant",
-        "content": "I'm here to assist you! How can I help you today?",
-        "refusal": null
-      },
-      "logprobs": null,
-      "finish_reason": "stop"
-    }
- */
+await agent("How are you today?")
