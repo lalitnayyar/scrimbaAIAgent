@@ -158,3 +158,295 @@
 }
 2024-12-28T22:43:40.952Z - {"temperature":"72","unit":"F","forecast":"sunny"}
 2024-12-28T22:43:40.952Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:46:34.902Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_CLenKC1LU5yRdLaVo9c2xszO",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"city\": \"Tokyo\"}"
+        }
+      },
+      {
+        "id": "call_WkzVNuutXAjXPMSEhSEZra3Y",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"city\": \"New York City\"}"
+        }
+      },
+      {
+        "id": "call_unCDWfDOEwZ6cOXCe1NkCnMa",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"city\": \"Oslo\"}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+2024-12-28T22:46:34.902Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:46:34.902Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:46:34.902Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:46:35.748Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_l9xt2LYn2LH9DTNVzAkNRT9s",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      },
+      {
+        "id": "call_hWRxQXThIggU9e8ELKNaMfn5",
+        "type": "function",
+        "function": {
+          "name": "getLocation",
+          "arguments": "{}"
+        }
+      },
+      {
+        "id": "call_XNIJvdseVhOQLROfMkqZH0Hg",
+        "type": "function",
+        "function": {
+          "name": "getLocation",
+          "arguments": "{}"
+        }
+      },
+      {
+        "id": "call_9te9x5BmM6CfqnDWfYQHRUd0",
+        "type": "function",
+        "function": {
+          "name": "getLocation",
+          "arguments": "{}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+2024-12-28T22:46:35.748Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:46:35.748Z - Salt Lake City, UT
+2024-12-28T22:46:35.748Z - Salt Lake City, UT
+2024-12-28T22:46:35.748Z - Salt Lake City, UT
+2024-12-28T22:46:36.763Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_sglRLpCpygRdDXRqQKsWHRKQ",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"city\": \"Tokyo\"}"
+        }
+      },
+      {
+        "id": "call_5flenfWkxXupsxLXP3PniS20",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"city\": \"New York City\"}"
+        }
+      },
+      {
+        "id": "call_3IUWAkIQQHvYvn9ATGw7T7KQ",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"city\": \"Oslo\"}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+2024-12-28T22:46:36.763Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:46:36.763Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:46:36.763Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:46:37.738Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_97vmyc30e5HI0iGRyCWyoDqw",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"city\": \"Tokyo\"}"
+        }
+      },
+      {
+        "id": "call_H98WSo9E0iJl9nIYUNWqo6jy",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"city\": \"New York City\"}"
+        }
+      },
+      {
+        "id": "call_93yBx91viHN5MbX9TtBV7bAB",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"city\": \"Oslo\"}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+2024-12-28T22:46:37.738Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:46:37.738Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:46:37.738Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:46:38.860Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_u3i78lLUNQaxLqoahN7JIJFe",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"city\": \"Tokyo\"}"
+        }
+      },
+      {
+        "id": "call_POp81NGzKPoFFtRIB7qgxRd3",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"city\": \"New York City\"}"
+        }
+      },
+      {
+        "id": "call_fjN0HSxFSkuoqDd1hoLNLKgh",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"city\": \"Oslo\"}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+2024-12-28T22:46:38.860Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:46:38.860Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:46:38.860Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:47:20.579Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_S5A8ikPwIqB8be8v5F1ZZ4ah",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      },
+      {
+        "id": "call_SB50pCT2QteppIOPdT31sun7",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      },
+      {
+        "id": "call_QV8hiL0OMAfEL73ba96HroZR",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+2024-12-28T22:47:20.579Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:47:20.579Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:47:20.579Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:48:29.445Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_tI9dPC8bW3zgJc8PPvCfgGbL",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      },
+      {
+        "id": "call_HGAua81oAw5wWPcQrlAF8wvh",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      },
+      {
+        "id": "call_0IBQgMpIcszhzrnYgfgvOFiQ",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+2024-12-28T22:48:29.445Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:48:29.445Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:48:29.445Z - {"temperature":"72","unit":"F","forecast":"sunny"}
+2024-12-28T22:48:30.195Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": "The current weather in Tokyo, New York City, and Oslo is 72°F and sunny.",
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "stop"
+}

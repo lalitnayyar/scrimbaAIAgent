@@ -57,6 +57,9 @@ async function agent(query) {
 
         const { finish_reason: finishReason, message } = response.choices[0]
         const { tool_calls: toolCalls } = message
+                
+        messages.push(message)
+        
 
         if (finishReason === "stop") {
             console.log(message.content)
@@ -75,6 +78,12 @@ async function agent(query) {
                 // access the actual function from the array of available functions
                 // call that function
                 // console.log the result
+                messages.push({
+                    tool_call_id: toolCall.id,
+                    role: "tool",
+                    name: functionName,
+                    content: functionResponse
+                })
             }
         }
         // Check finish_reason
@@ -90,4 +99,4 @@ async function agent(query) {
     }
 }
 
-await agent("What's the current weather in Tokyo and New York City?")
+await agent("What's the current weather in Tokyo and New York City and Oslo?")
