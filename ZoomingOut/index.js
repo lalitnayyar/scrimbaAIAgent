@@ -20,7 +20,6 @@ const availableFunctions = {
     getCurrentWeather,
     getLocation
 }
-
 async function agent(query) {
     const messages = [
         { role: "system", content: "You are a helpful AI agent. Give highly specific answers based on the information you're provided. Prefer to gather information with the tools provided to you rather than giving basic, generic answers." },
@@ -37,29 +36,16 @@ async function agent(query) {
             tools
         })
 
-        /**
-         * Challenge: 
-         * Write the logic for the first part of our loop 
-         * (if finish_reason === "stop" condition)
-         */
-        const responseText = JSON.stringify(response.choices[0], null, 2)
-        console.log(response.choices[0])
-
+        const { finish_reason: finishReason, message } = response.choices[0]
+        const { tool_calls: toolCalls } = message
+        console.log(toolCalls)
 
         // Add timestamp to the log entry
         const timestamp = new Date().toISOString()
-        const logEntry = `${timestamp} - ${responseText}\n`
-
-        // Log the response to a file
+        const logEntry = `${timestamp} - ${JSON.stringify(toolCalls)}\n`
         fs.writeFileSync('log.txt', logEntry, { flag: 'a' })
-        // Log the response to a file
-        // fs.writeFileSync('log.txt', responseText, { flag: 'a' })
 
-        const { finish_reason: finishReason, message } = response.choices[0]
-        const { tool_calls: toolCalls } = message
-                
         messages.push(message)
-        
 
         if (finishReason === "stop") {
             console.log(message.content)
@@ -69,15 +55,13 @@ async function agent(query) {
             for (const toolCall of toolCalls) {
                 const functionName = toolCall.function.name
                 const functionToCall = availableFunctions[functionName]
-                const functionResponse = await functionToCall()
+                const functionArgs = JSON.parse(toolCall.function.arguments)
+                const functionResponse = await functionToCall(functionArgs)
                 console.log(functionResponse)
-                const logEntry = `${timestamp} - ${functionResponse}\n`
-                // Log the response to a file
+                // Add timestamp to the log entry
+                const timestamp = new Date().toISOString()
+                const logEntry = `${timestamp} - ${JSON.stringify(functionResponse)}\n`
                 fs.writeFileSync('log.txt', logEntry, { flag: 'a' })
-                // get the function name
-                // access the actual function from the array of available functions
-                // call that function
-                // console.log the result
                 messages.push({
                     tool_call_id: toolCall.id,
                     role: "tool",
@@ -86,17 +70,8 @@ async function agent(query) {
                 })
             }
         }
-        // Check finish_reason
-        // if "stop"
-        // return the result
-        // else if "tool_calls"
-        // call functions
-        // append results
-        // continue
-
-
 
     }
 }
 
-await agent("What's the current weather in Tokyo and New York City and Oslo?")
+await agent("What's the current weather in my current location?")

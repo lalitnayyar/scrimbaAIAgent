@@ -450,3 +450,135 @@
   "logprobs": null,
   "finish_reason": "stop"
 }
+2024-12-28T23:07:20.863Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_urcuAwiXdhSKkaZskHqcF7MN",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"location\": \"Tokyo\", \"unit\": \"celcius\"}"
+        }
+      },
+      {
+        "id": "call_xC3ujH3lNwgBY4eXzBG9u7fV",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"location\": \"New York City\", \"unit\": \"celcius\"}"
+        }
+      },
+      {
+        "id": "call_xIiLJs5FkV7ghx7tIs37V5m5",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"location\": \"Oslo\", \"unit\": \"celcius\"}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+2024-12-28T23:08:19.070Z - {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "call_KEUsVTratJSjKOhZjCrfuWnB",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"location\": \"Tokyo\"}"
+        }
+      },
+      {
+        "id": "call_0d5CDmMVVjiRHomX5M4OGY1j",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"location\": \"New York City\"}"
+        }
+      },
+      {
+        "id": "call_ZMT9TcXIdkb586Nw4q0BmnJO",
+        "type": "function",
+        "function": {
+          "name": "getCurrentWeather",
+          "arguments": "{\"location\": \"Oslo\"}"
+        }
+      }
+    ],
+    "refusal": null
+  },
+  "logprobs": null,
+  "finish_reason": "tool_calls"
+}
+
+
+
+
+  {
+    id: 'call_REemDoLomTkXhukYt9fD37Tg',
+    type: 'function',
+    function: {
+      name: 'getCurrentWeather',
+      arguments: '{"location": "Tokyo", "unit": "celcius"}'
+    }
+  },
+  {
+    id: 'call_Vdrd4YajDEfkYdQ4wjYJRefv',
+    type: 'function',
+    function: {
+      name: 'getCurrentWeather',
+      arguments: '{"location": "New York City", "unit": "celcius"}'
+    }
+  },
+  {
+    id: 'call_y8aryCre6Tld1ixyNSr1UMDy',
+    type: 'function',
+    function: {
+      name: 'getCurrentWeather',
+      arguments: '{"location": "Oslo", "unit": "celcius"}'
+    }
+  }
+]
+ lalit@lalitnayyar-ausus13  ~  OneDrive  Scrimba1  scrimbaAIAgent  scrimbaAIAgent  ZoomingOut  main 
+❯2024-12-28T23:22:08.996Z - [object Object],[object Object],[object Object]
+2024-12-28T23:23:08.766Z - undefined
+2024-12-28T23:24:49.494Z - [{"id":"call_6wN2ovqIgHG3gn6omRzaCrRG","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"Tokyo\", \"unit\": \"celcius\"}"}},{"id":"call_bsVD2k5ac4VlJI5paFXt6mvi","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"New York City\", \"unit\": \"celcius\"}"}},{"id":"call_4cRVYjA5QVSRRgZaVltrGQ7E","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"Oslo\", \"unit\": \"celcius\"}"}}]
+2024-12-28T23:26:18.314Z - [{"id":"call_dtBQmZjXDlZYNb3UfyUSkuik","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"Tokyo\", \"unit\": \"celcius\"}"}},{"id":"call_QnZz9Jc7e7eMrkb3ObwBsNQ1","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"New York City\", \"unit\": \"celcius\"}"}},{"id":"call_pC1DNKOUs6mvAsQvWYvAoIMb","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"Oslo\", \"unit\": \"celcius\"}"}}]
+2024-12-28T23:26:18.315Z - {"location":"Tokyo","unit":"celcius"}
+2024-12-28T23:26:18.316Z - {"location":"New York City","unit":"celcius"}
+2024-12-28T23:26:18.316Z - {"location":"Oslo","unit":"celcius"}
+2024-12-28T23:27:02.493Z - [{"id":"call_R3I1qKTYXDCDteeOR84LrqmK","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"Tokyo\"}"}},{"id":"call_rEncf2kv7X1wUQzXP4mG01k2","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"New York City\"}"}},{"id":"call_J9x1EaU4uGSykewf5orIXmP1","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"Oslo\"}"}}]
+2024-12-28T23:27:02.494Z - {"location":"Tokyo"}
+2024-12-28T23:27:02.495Z - {"location":"New York City"}
+2024-12-28T23:27:02.496Z - {"location":"Oslo"}
+2024-12-28T23:27:55.863Z - [{"id":"call_eS7psG5JRjD4PxO0ixlit2Ng","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"Tokyo\", \"unit\": \"celsius\"}"}},{"id":"call_bv4dk60ic6j1wz3dnQhxqCdS","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"New York City\", \"unit\": \"celsius\"}"}},{"id":"call_a6rpuAqq5rO6ghsIp7ng0WOm","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"Oslo\", \"unit\": \"celsius\"}"}}]
+2024-12-28T23:27:55.865Z - {"location":"Tokyo","unit":"celsius"}
+2024-12-28T23:28:17.992Z - [{"id":"call_O3wY4qDxh3SgylVWYtxr0H1M","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"Tokyo\", \"unit\": \"celsius\"}"}},{"id":"call_p0Nbxmq9A6RlGxLJcrrlT00b","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"New York City\", \"unit\": \"celsius\"}"}},{"id":"call_8JzQSjHtPPvKdmPJJUhFc2aT","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"Oslo\", \"unit\": \"celsius\"}"}}]
+2024-12-28T23:28:17.994Z - {"location":"Tokyo","unit":"celsius"}
+2024-12-28T23:29:13.329Z - [{"id":"call_UDurG8Md7CCE0dK3z2GInxwl","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"Tokyo\", \"unit\": \"celsius\"}"}},{"id":"call_80hIzEBvu024gsBbd5ma9n5J","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"New York City\", \"unit\": \"celsius\"}"}},{"id":"call_9ioyQWsSfxtJkz2bmRHpt47U","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\": \"Oslo\", \"unit\": \"celsius\"}"}}]
+2024-12-28T23:31:38.289Z - [{"id":"call_oAw8YDVhxQvmhrb1I82Doh50","type":"function","function":{"name":"getLocation","arguments":"{}"}}]
+2024-12-28T23:31:40.300Z - undefined
+2024-12-28T23:32:55.073Z - [{"id":"call_NrHp8X5qQpcGRLYGQCsbEGa7","type":"function","function":{"name":"getLocation","arguments":"{}"}}]
+2024-12-28T23:32:56.787Z - undefined
+2024-12-28T23:33:58.242Z - [{"id":"call_wMBvyBVSXHYVfCwq03QiFUO8","type":"function","function":{"name":"getLocation","arguments":"{}"}}]
+2024-12-28T23:33:59.697Z - undefined
+2024-12-28T23:36:01.631Z - [{"id":"call_qL1ElNMOJ9Hm0EVOTDAnQVfN","type":"function","function":{"name":"getLocation","arguments":"{}"}}]
+2024-12-28T23:36:02.735Z - [{"id":"call_D3JuUXadaoLaUljGv7n95MWO","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\":\"Dubai\"}"}}]
+2024-12-28T23:36:03.445Z - undefined
+2024-12-28T23:37:13.431Z - [{"id":"call_kbpapOwvzS9X1CVwQboPdChf","type":"function","function":{"name":"getLocation","arguments":"{}"}}]
+2024-12-28T23:37:14.085Z - "{\"status\":\"success\",\"country\":\"United Arab Emirates\",\"countryCode\":\"AE\",\"region\":\"DU\",\"regionName\":\"Dubai\",\"city\":\"Dubai\",\"zip\":\"\",\"lat\":25.0731,\"lon\":55.298,\"timezone\":\"Asia/Dubai\",\"isp\":\"Emirates Telecommunications Corporation\",\"org\":\"Emirates Telecommunications Corporation\",\"as\":\"AS5384 EMIRATES TELECOMMUNICATIONS GROUP COMPANY (ETISALAT GROUP) PJSC\",\"query\":\"37.245.219.19\"}"
+2024-12-28T23:37:14.722Z - [{"id":"call_1rBftm63F4IiRT0QXvkk6lGv","type":"function","function":{"name":"getCurrentWeather","arguments":"{\"location\":\"Dubai\"}"}}]
+2024-12-28T23:37:14.723Z - "{\"location\":\"Dubai\",\"temperature\":\"75\",\"forecast\":\"sunny\"}"
+2024-12-28T23:37:15.289Z - undefined

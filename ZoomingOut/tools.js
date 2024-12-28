@@ -1,14 +1,20 @@
-export async function getCurrentWeather() {
+export async function getCurrentWeather({ location }) {
     const weather = {
-        temperature: "72",
-        unit: "F",
+        location,
+        temperature: "75",
         forecast: "sunny"
     }
     return JSON.stringify(weather)
 }
 
 export async function getLocation() {
-    return "Salt Lake City, UT"
+  try {
+    const response = await fetch('http://ip-api.com/json')
+    const text = await response.json()
+    return JSON.stringify(text)
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 export const tools = [
@@ -19,7 +25,13 @@ export const tools = [
             description: "Get the current weather",
             parameters: {
                 type: "object",
-                properties: {}
+                properties: {
+                    location: {
+                        type: "string",
+                        description: "The location from where to get the weather"
+                    }
+                },
+                required: ["location"]
             }
         }
     },
