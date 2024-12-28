@@ -1,6 +1,6 @@
 import OpenAI from "openai"
 import dotenv from "dotenv"
-import { getCurrentWeather, getLocation ,tools} from "./tools.js"
+import { getCurrentWeather, getLocation, tools } from "./tools.js"
 
 // Load environment variables from .env file
 dotenv.config()
@@ -25,23 +25,37 @@ async function agent(query) {
         { role: "system", content: "You are a helpful AI agent. Give highly specific answers based on the information you're provided. Prefer to gather information with the tools provided to you rather than giving basic, generic answers." },
         { role: "user", content: query }
     ]
-    
+
     const MAX_ITERATIONS = 5
-    
+
     // for (let i = 0; i < MAX_ITERATIONS; i++) {
     //     console.log(`Iteration #${i + 1}`)
-        const response = await openai.chat.completions.create({
-            model: "gpt-3.5-turbo",
-            messages,
-            tools
-        })
+    const response = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages,
+        tools
+    })
 
-        // const responseText = response.choices[0].message.content
-        console.log(JSON.stringify(response, null, 2))
-    }
+    // const responseText = response.choices[0].message.content
+    console.log(JSON.stringify(response, null, 2))
+    /**
+* Challenge: 
+* Write the logic for the first part of our loop 
+* (if finish_reason === "stop" condition)
+*/
+    console.log(response.choices[0])
+
+    // Check finish_reason
+    // if "stop"
+    // return the result
+    // else if "tool_calls"
+    // call functions
+    // append results
+    // continue
+}
 // }
 
-await agent("What is my current location?")
+await agent("how are you today?")
 
 /**
  * "choices": [
@@ -66,4 +80,15 @@ await agent("What is my current location?")
       "finish_reason": "tool_calls"
     }
   ],
+    "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "I'm here to assist you! How can I help you today?",
+        "refusal": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
  */
