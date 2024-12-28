@@ -11,59 +11,71 @@ const openai = new OpenAI({
 })
 
 /**
- * Goal - build an agent that can get the current weather at my current location
- * and give me some localized ideas of activities I can do.
+ * Goal - build an agent that can answer any questions that might require knowledge about my current location and the current weather at my location.
  */
-
-// Call a function to get the current location and the current weather
-const weather = await getCurrentWeather()
-const location = await getLocation()
-
-async function getActivityIdeas() {
-    const response = await openai.chat.completions.create({
-        model: "gpt-4",
-        messages: [
-            {
-                role: "user",
-                content: `Give me a list of activity ideas based on my current location of ${location} and weather of ${weather}`
-            }
-        ]
-    })
-
-    console.log(response.choices[0].message.content)
-}
-
-getActivityIdeas()
 
 /**
- * Output:
- * 1. Visiting the Great Salt Lake: Enjoy this nearby natural wonder, go for a swim or enjoy a picnic.
-
-2. Biking at the Bonneville Shoreline Trail: Enjoy this beautiful weather by taking a bike ride along the stunning trail.
-
-3. Hike Mount Olympus: Mount Olympus's trail is demanding but the view at the top is worth it.
-
-4. Visit the Utah State Capitol: Explore the state's history by touring the Capitol building and its beautiful grounds.
-
-5. City and County Building Walk: Take advantage of the beautiful sunny weather and enjoy a stroll around the City and County Building, a landmark in Salt Lake City. 
-
-6. Liberty Park: Pack a picnic and spend a few hours enjoying the beautiful weather in the park. If you have kids, they'll love the Seven Canyons Fountain, which represents the seven canyons through the water flows to reach Salt Lake City.
-
-7. Red Butte Garden and Arboretum: If you are a nature lover, don’t miss a visit. There you can spend a heated day in the shade of different plants, trees, and even enjoy outdoor concerts.
-
-8. Visit the Hogle Zoo: This fantastic zoo is perfect for a day out. From elephants to bats, there's so much to see.
-
-9. Start Golfing: With the perfect weather, you can go golfing at one of the city's many beautiful golf courses like Bonneville Golf Course.
-
-10. Play Tennis at Liberty Park: Liberty Park has public tennis courts and the weather is perfect for a game of tennis.
-
-11. Visit the Tracy Aviary: See more than 400 birds at this beautiful aviary located in Liberty Park.
-
-12. Visit Wheeler Historic Farm: A day at the farm includes a peek into a historic Victorian home, cow milking, and wagon rides.
-
-13. Go Shopping: City Creek Center and Trolley Square are wonderful places to start.
-
-14. Try out watersports: Great Salt Lake is not only great for swimming but also for kayaking, canoeing, and standup paddleboarding.
-
-15. Grab a meal outdoors: With the temperature at a comfortable 72 degrees, enjoy outdoor dining at one of the many restaurants in the downtown area.
+ PLAN:
+ 1. Design a well-written ReAct prompt
+ 2. Build a loop for my agent to run in.
+ 3. Parse any actions that the LLM determines are necessary
+ 4. End condition - final Answer is given
+ 
  */
+
+
+const systemPrompt = `
+You cycle through Thought, Action, PAUSE, Observation. At the end of the loop you output a final Answer. Your final answer should be highly specific to the observations you have from running
+the actions.
+1. Thought: Describe your thoughts about the question you have been asked.
+2. Action: run one of the actions available to you - then return PAUSE.
+3. PAUSE
+4. Observation: will be the result of running those actions.
+
+Available actions:
+- getCurrentWeather: 
+    E.g. getCurrentWeather: Salt Lake City
+    Returns the current weather of the location specified.
+- getLocation:
+    E.g. getLocation: null
+    Returns user's location details. No arguments needed.
+
+Example session:
+Question: Please give me some ideas for activities to do this afternoon.
+Thought: I should look up the user's location so I can give location-specific activity ideas.
+Action: getLocation: null
+PAUSE
+
+You will be called again with something like this:
+Observation: "New York City, NY"
+
+Then you loop again:
+Thought: To get even more specific activity ideas, I should get the current weather at the user's location.
+Action: getCurrentWeather: New York City
+PAUSE
+
+You'll then be called again with something like this:
+Observation: { location: "New York City, NY", forecast: ["sunny"] }
+
+You then output:
+Answer: <Suggested activities based on sunny weather that are highly specific to New York City and surrounding areas.>
+`
+
+// const weather = await getCurrentWeather()
+// const location = await getLocation()
+
+// async function getActivityIdeas() {
+//     const response = await openai.chat.completions.create({
+//         model: "gpt-3.5-turbo-0125",
+//         messages: [
+//             {
+//                 role: "user",
+//                 content: `Give me a list of activity ideas based on my current location of ${location} and weather of ${weather}`
+//             }
+//         ]
+//     })
+
+//     console.log(response.choices[0].message.content)
+// }
+
+// getActivityIdeas()
