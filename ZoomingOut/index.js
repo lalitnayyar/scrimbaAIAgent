@@ -44,26 +44,50 @@ async function agent(query) {
          */
         const responseText = JSON.stringify(response.choices[0], null, 2)
         console.log(response.choices[0])
-    
+
+
+        // Add timestamp to the log entry
+        const timestamp = new Date().toISOString()
+        const logEntry = `${timestamp} - ${responseText}\n`
+
         // Log the response to a file
-        fs.writeFileSync('log.txt', responseText, { flag: 'a' })
+        fs.writeFileSync('log.txt', logEntry, { flag: 'a' })
+        // Log the response to a file
+        // fs.writeFileSync('log.txt', responseText, { flag: 'a' })
 
         const { finish_reason: finishReason, message } = response.choices[0]
-        
+        const { tool_calls: toolCalls } = message
+
         if (finishReason === "stop") {
             console.log(message.content)
             console.log("AGENT ENDING")
             return
+        } else if (finishReason === "tool_calls") {
+            for (const toolCall of toolCalls) {
+                const functionName = toolCall.function.name
+                const functionToCall = availableFunctions[functionName]
+                const functionResponse = await functionToCall()
+                console.log(functionResponse)
+                const logEntry = `${timestamp} - ${functionResponse}\n`
+
+                // Log the response to a file
+                fs.writeFileSync('log.txt', logEntry, { flag: 'a' })
+                // get the function name
+                // access the actual function from the array of available functions
+                // call that function
+                // console.log the result
+            }
         }
         // Check finish_reason
         // if "stop"
-            // return the result
+        // return the result
         // else if "tool_calls"
-            // call functions
-            // append results
-            // continue
+        // call functions
+        // append results
+        // continue
 
-        
+
+
     }
 }
 
