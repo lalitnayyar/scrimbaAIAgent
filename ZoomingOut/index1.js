@@ -10,6 +10,12 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
     dangerouslyAllowBrowser: true
 })
+
+/**
+ * Goal - build an agent that can get the current weather at my current location
+ * and give me some localized ideas of activities I can do.
+ */
+
 const availableFunctions = {
     getCurrentWeather,
     getLocation
@@ -21,18 +27,13 @@ async function agent(query) {
         { role: "user", content: query }
     ]
 
-    const runner = openai.beta.chat.completions.runFunctions({
+    const runner = openai.chat.completions.runTools({
         model: "gpt-3.5-turbo-1106",
         messages,
         functions
     })
     
     const finalContent = await runner.finalContent()
-
-            // Add timestamp to the log entry
-            const timestamp = new Date().toISOString()
-            const logEntry = `${timestamp} - ${JSON.stringify(finalContent)}\n`
-            fs.writeFileSync('log.txt', logEntry, { flag: 'a' })
     console.log(finalContent)
 }
 
