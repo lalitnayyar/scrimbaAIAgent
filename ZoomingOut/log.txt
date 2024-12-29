@@ -584,3 +584,46 @@
 2024-12-28T23:37:15.289Z - undefined
 2024-12-29T01:03:43.937Z - "It seems that I've been rate limited from accessing location information. You can visit https://ipapi.co/ratelimited/ for more details."
 2024-12-29T01:04:35.422Z - "The current weather in Dubai is sunny with a temperature of 70°F."
+2024-12-29T01:08:12.664Z - "The current weather in Dubai is sunny with a temperature of 70°F."
+2024-12-29T01:11:08.751Z - "The current weather in Dubai is sunny with a temperature of 70°F. The latitude and longitude of Dubai are 25.0731° N and 55.298° E."
+2024-12-29T01:11:50.123Z - "The current weather in Dubai is sunny, with a temperature of 70°F. The latitude and longitude of Dubai are 25.0731° N and 55.298° E."
+2024-12-29T01:21:56.105Z - "The current temperature in Dubai is 70°F, and the weather is sunny. The latitude and longitude of Dubai are 25.0731° N and 55.298° E."
+2024-12-29T01:31:41.351Z - "The current temperature in Dubai is 70°F, and the weather forecast is sunny. The latitude and longitude of Dubai are 25.0731 and 55.298, respectively."
+2024-12-29T01:33:29.347Z - "The curren{
+  role: 'system',
+  content: "You are a helpful AI agent. Give highly specific answers based on the information you're provided. Prefer to gather information with the tools provided to you rather than giving basic, generic answers. show me lat and lon of location also current temperature"
+}
+{
+  role: 'user',
+  content: "What's the current weather in my current location?"
+}
+{
+  role: 'assistant',
+  content: null,
+  function_call: { name: 'getLocation', arguments: '{}' },
+  refusal: null
+}
+25.0731
+{
+  role: 'function',
+  name: 'getLocation',
+  content: '{"status":"success","country":"United Arab Emirates","countryCode":"AE","region":"DU","regionName":"Dubai","city":"Dubai","zip":"","lat":25.0731,"lon":55.298,"timezone":"Asia/Dubai","isp":"Emirates Telecommunications Corporation","org":"Emirates Telecommunications Corporation","as":"AS5384 EMIRATES TELECOMMUNICATIONS GROUP COMPANY (ETISALAT GROUP) PJSC","query":"37.245.219.19"}'
+}
+{
+  role: 'assistant',
+  content: null,
+  function_call: { name: 'getCurrentWeather', arguments: '{"location":"Dubai"}' },
+  refusal: null
+}
+{
+  role: 'function',
+  name: 'getCurrentWeather',
+  content: '{"temperature":"70","forecast":"sunny"}'
+}
+{
+  role: 'assistant',
+  content: 'The current weather in Dubai is sunny with a temperature of 70°F (21°C). The latitude and longitude of Dubai are 25.0731° N and 55.298° E respectively.', 
+  refusal: null
+}t weather in Dubai is sunny with a temperature of 70°F (21°C). The latitude and longitude of Dubai are 25.0731° N and 55.298° E respectively."
+
+

@@ -1,4 +1,5 @@
 export async function getCurrentWeather({ location }) {
+ 
     const weather = {
         location,
         temperature: "70",
@@ -11,6 +12,7 @@ export async function getLocation() {
     try {
         const response = await fetch('http://ip-api.com/json')
         const text = await response.json()
+        console.log(text.lat)
         return JSON.stringify(text)
     } catch (err) {
         console.log(err)
