@@ -1,9 +1,9 @@
 import OpenAI from "openai"
-import { getCurrentWeather, getLocation, functions } from "./tools"
-import { renderNewMessage } from "./dom"
+import { getCurrentWeather, getLocation, functions } from "./tools.js"
+import { renderNewMessage } from "./dom.js"
 
 export const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: import.meta.env.VITE_OPENAI_API_KEY,
     dangerouslyAllowBrowser: true
 })
 
