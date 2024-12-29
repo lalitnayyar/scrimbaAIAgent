@@ -35,6 +35,11 @@ giving basic, generic answers.
     }).on("message", (message) => console.log(message))
 
     const finalContent = await runner.finalContent()
+       /**
+     * Challenge: enable the agent to remember our conversation history 
+     * so it can refer to past messages when responding to our questions
+     */
+    
     renderNewMessage(finalContent, "assistant")
 }
 
